@@ -4,7 +4,7 @@ int main()
 {
 	int a,b,i,j,k=0,c;
 	scanf("%d %d %d",&a,&b,&c);
-	int x[a][a],y[b][b],z[c][c],sum[10]={0},sum1[10]={0},t[3]={0};
+	int x[a][a],y[b][b],z[c][c],sum[10]={0},sum1[10]={0},t[3]={0},sum2[10]={0};
 	printf("\n");
 	for(i=0 ; i<a;i++){
 		for(j=0 ; j<a; j++){
@@ -27,10 +27,10 @@ int main()
 		for(j=0; j<a; j++){
 			sum[i]=sum[i]+x[i][j];
 			sum1[i]=sum1[i]+x[k][k];
-			k++;
-			
+			sum2[i]=sum2[i]+x[i][k];
+			k++;	
 		}
-		if(i==a-1&&sum[i]==sum1[a-1]){
+		if(i==a-1&&sum[i]==sum1[a-1]&&sum1[a-1]==sum2[i]&&sum2[i]==sum[i]){
 			t[0]=1;
 		}
 	}
@@ -39,10 +39,11 @@ int main()
 		for(j=0; j<b; j++){
 			sum[i]=sum[i]+x[i][j];
 			sum1[i]=sum1[i]+x[k][k];
+			sum2[i]=sum2[i]+y[i][k];
 			k++;
 			
 		}
-		if(i==b-1&&sum[i]==sum1[b-1]){
+		if(i==a-1&&sum[i]==sum1[a-1]&&sum1[a-1]==sum2[i]&&sum2[i]==sum[i]){
 			t[1]=1;
 		}
 	}
@@ -51,10 +52,11 @@ int main()
 		for(j=0; j<c; j++){
 			sum[i]=sum[i]+x[i][j];
 			sum1[i]=sum1[i]+x[k][k];
+			sum2[i]=sum2[i]+z[i][k];
 			k++;
 			
 		}
-		if(i==c-1&&sum[i]==sum1[c-1]){
+		if(i==a-1&&sum[i]==sum1[a-1]&&sum1[a-1]==sum2[i]&&sum2[i]==sum[i]){
 			t[2]=1;
 		}
 	}
