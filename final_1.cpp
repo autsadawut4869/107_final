@@ -9,7 +9,11 @@ int main()
 		a=a/10;
 		k++;
 	}
-	
+	if(s[0]>b){
+		printf("%d%d%d\n",n,n+1,b);
+	}else{
+		printf("%d%d\n",n,b);
+	}
 	
 	return 0;
 }
